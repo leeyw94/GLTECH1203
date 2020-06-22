@@ -36,6 +36,8 @@ namespace GLtech.Models
         public string useable { get; set; }
         [StringLength(50)]
         public string fileId { get; set; }
+        [StringLength(1)]
+        public string main_yn { get; set; }
 
         [ForeignKey(nameof(BM_idx))]
         [InverseProperty(nameof(BoardMenu.BoardList))]

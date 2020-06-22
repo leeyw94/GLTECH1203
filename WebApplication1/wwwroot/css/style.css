@@ -200,16 +200,19 @@ header .hd_lang {
     font-size: 0;
     text-align: left;
 }
-.hd_lang > a {
-    display: inline-block;
-    position: relative;
-    padding: 27px !important;
-    font-size: 15px;
-    color: #808080;
-    vertical-align: top;
-    transition: color 0.4s;
-    float:left;
-}
+    header .logo-h {
+        float:right;
+    }
+    .hd_lang > a {
+        display: inline-block;
+        position: relative;
+        padding: 27px !important;
+        font-size: 15px;
+        color: #808080;
+        vertical-align: top;
+        transition: color 0.4s;
+        float: left;
+    }
 .hd_lang > a:after {
     content: "";
     position: absolute;
@@ -1186,12 +1189,18 @@ footer span:first-of-type {
         margin: auto;
         width: 100%;
     }
+    header .logo-h {
+        float:none;
+    }
     header .hd_lang > a {
-        width:50%;
+        width:33%;
         margin:auto;
     }
     .hd_lang > a:after {
         top:19px;
+    }
+    h1 a {
+        padding-top:0;
     }
 
     .web_info {
@@ -1225,15 +1234,13 @@ footer span:first-of-type {
         .sel:before {
             left: 27%;
         }
+        .model-list {
+            display:inline-block
+        }
     .model-list a {
         font-size: 14px;
         padding: 12px 12px;
     }
-        .model-list a:first-child {
-            font-size:16px;
-            width:100%;
-            display:block;
-        }
         .model-list a:after {
             top:10px;
         }
@@ -1313,7 +1320,7 @@ footer span:first-of-type {
         top:-100px
     }
         .main-tech .detail {
-            top:8%;
+            top:10%;
             left:8%;
             width:85%
         }
@@ -1324,7 +1331,7 @@ footer span:first-of-type {
             font-size:12px;
         }
         .main-tech .caption .btn{
-            margin-top:70px;
+            margin-top:88px;
         }
         .main-title1 {
             top: 0;
@@ -1350,6 +1357,9 @@ footer span:first-of-type {
     }
     .main-box1 {
         height:300px; 
+    }
+    .main-box1:last-child {
+        margin-top:20px;
     }
     .main-box2 {
         margin: 15px;

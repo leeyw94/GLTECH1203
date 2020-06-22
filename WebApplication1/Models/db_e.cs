@@ -141,6 +141,10 @@ namespace GLtech.Models
 
                 entity.Property(e => e.fileId).IsUnicode(false);
 
+                entity.Property(e => e.main_yn)
+                    .IsUnicode(false)
+                    .HasComment("메인 노출 (y,n)");
+
                 entity.Property(e => e.password).IsUnicode(false);
 
                 entity.Property(e => e.title).IsUnicode(false);
