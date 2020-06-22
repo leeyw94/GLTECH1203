@@ -1,0 +1,278 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Home/Index 메인 -->
+
+<style>
+    .item img {
+        transform: scale(1.1,1.1) rotate(0);
+        transition: transform 3000ms ease-in-out;
+    }
+
+    .active img {
+        transform: scale(1.0,1.0) rotate(0.002deg);
+        transition: transform 3000ms ease-in-out;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        /*background:rgba(255,255,255,.3);
+        border:1px solid rgba(36, 41, 72, 0.9);*/
+        background: none;
+        border: none;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+        color: #fff;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        line-height: 3.4;
+        border-top: 1px solid rgba(0,0,0,.1)
+    }
+
+    .table > tbody > tr:last-child {
+        border-bottom: 1px solid rgba(0,0,0,.1)
+    }
+</style>
+<div class="row body" style="margin-left:0;margin-right:0;">
+    <div class="col-md-12 center">
+        <div class="row" style="position:relative;">
+
+            <!-- 왼쪽 슬라이드 시작 -->
+            <div id="myCarousel1" class="carousel slide carousel-fade" data-ride="carousel" style="position:relative;">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel1" data-slide-to="1"></li>
+                    <li data-target="#myCarousel1" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="/images/index/leftslide4.jpg" style="width:100%;" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="/images/index/leftslide5.jpg" style="width:100%;" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="/images/index/leftslide6.jpg" style="width:100%;" alt="Third slide">
+                    </div>
+                </div>
+            </div>
+            <!-- 왼쪽 슬라이드 끝 -->
+
+        </div>
+    </div>
+</div>
+
+<div class="col-md-8 main-tech tiles col-md-offset-2">
+
+    <div class="col-xs-6" style="overflow:hidden;transition:0.5s" data-aos="fade-up">
+        <a href="#" class="tile">
+            <img src="~/images/index/main-tech5.jpg" style="position:relative" class="img-responsive web_only" />
+            <img src="~/images/index/main-tech7.jpg" style="position:relative" class="img-responsive m_only" />
+            <div class="detail">
+                <div class="caption">
+                    <h3 class="title">측정기</h3>
+                    <h5>Measurement & Profiler</h5>
+                    <span class="btn btn-dark">View more</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-6" style="overflow:hidden;transition:1s" data-aos="fade-up">
+        <a href="#" class="tile">
+            <img src="~/images/index/main-tech6.jpg" style="position:relative" class="img-responsive web_only" />
+            <img src="~/images/index/main-tech8.jpg" style="position:relative" class="img-responsive m_only" />
+            <div class="detail">
+                <div class="caption">
+                    <h3 class="title">자동화 설비</h3>
+                    <h5>Microplate reader</h5>
+                    <span class="btn btn-dark">View more</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!-- Technology 끝 -->
+
+</div>
+
+
+<div class="row pb-70" style="margin:0;position:relative;border-top:solid 1px #eee;background: url(/images/index/bottom_bg.jpg) bottom center no-repeat;background-size:100%">
+    <div class="col-md-10 col-md-offset-1 center pb-50">
+
+        <!-- News&Event 시작 -->
+        <h1 class="center main-title2 pb-50" data-aos="fade-up"><span style="color:#d50037">GL</span>tech <span style="font-size:0.8em;">소식</span><span style="color:#d50037">.</span></h1>
+        <div class="col-md-3 col-sm-3 n-section" style="transition:0.5s;" data-aos="fade-up">
+            <a href="#" style="width:100%;" class="a-over" target="_blank">
+                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                <p class="caption n-caption">
+                    전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                    장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                    주        최 : 마이스포럼<br />
+                    출품제품 : 3D 형상 측정기<br />
+
+                    <img src="~/images/icons/arrow.png" class="arrow1" />
+                </p>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-3 n-section" style="transition:1s;" data-aos="fade-up">
+            <a href="#" style="width:100%" class="a-over" target="_blank">
+                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                <p class="caption n-caption">
+                    전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                    장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                    주        최 : 마이스포럼<br />
+                    출품제품 : 3D 형상 측정기<br />
+                    <img src="~/images/icons/arrow.png" class="arrow1" />
+                </p>
+            </a>
+        </div>
+
+        <div class="col-md-3 col-sm-3 n-section" style="transition:1.5s;" data-aos="fade-up">
+            <a href="#" style="width:100%" class="a-over" target="_blank">
+                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                <p class="caption n-caption">
+                    전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                    장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                    주        최 : 마이스포럼<br />
+                    출품제품 : 3D 형상 측정기<br />
+                    <img src="~/images/icons/arrow.png" class="arrow1" />
+                </p>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-3 n-section" style="transition:2s;" data-aos="fade-up">
+            <a href="#" style="width:100%" class="a-over" target="_blank">
+                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                <p class="caption n-caption">
+                    전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                    장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                    주        최 : 마이스포럼<br />
+                    출품제품 : 3D 형상 측정기<br />
+                    <img src="~/images/icons/arrow.png" class="arrow1" />
+                </p>
+            </a>
+        </div>
+        <!-- News&Event 끝 -->
+
+    </div>
+    <div class="col-md-10 col-md-offset-1 pt-70">
+        <div class="col-md-6" style="margin:0;">
+            <div class="col-md-12 p-100 main-box1" style="background:rgba(254, 247, 233, 0.7);transition:0.5s;" data-aos="fade-up">
+                <div class="col-md-3">
+                    <h3>공지사항<br /><span style="font-size:0.7em;color:rgba(0,0,0,.5)">NOTICE</span></h3>
+                </div>
+                <div class="col-md-9">
+                    <table class="table table-hover">
+                        <tr>
+                            <td class="tb-first" style="cursor:pointer">AUTOMOTIVE TECHNOLOGY EXPO 전시회 참가합니다.</td>
+                            <td class="web_only">관리자</td>
+                            <td>2020-05-20</td>
+                        </tr>
+                        <tr>
+                            <td class="tb-first" style="cursor:pointer">NANO KOREA 2018 전시회 참가합니다.</td>
+                            <td class="web_only">관리자</td>
+                            <td>2020-05-20</td>
+                        </tr>
+                        <tr>
+                            <td class="tb-first" style="cursor:pointer">홈페이지 리뉴얼중입니다.</td>
+                            <td class="web_only">관리자</td>
+                            <td>2020-05-20</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-12 p-100 main-box1" style="background:rgba(163, 21, 67, 0.8);color:#fff;transition:1s;" data-aos="fade-up">
+                <div class="col-md-3">
+                    <h3>고객센터<br /><span style="font-size:0.7em;color:rgba(255,255,255,.5)">CUSTOMER CENTER</span></h3>
+                </div>
+                <div class="col-md-9">
+                    <div class="col-xs-6">
+                        <h4>대표전화</h4>
+                        <hr style="border-top:1px solid rgba(255,255,255,.3)" />
+                        <h5>T 042-934-2772</h5>
+                        <h5>F 042-934-2773</h5>
+                    </div>
+                    <div class="col-xs-6">
+                        <h4>이메일</h4>
+                        <hr style="border-top:1px solid rgba(255,255,255,.3)" />
+                        <h5>sales@admin_basic.kr</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 p-200 main-box2" style="background:rgba(36, 41, 72, 0.8);color:#fff;transition:0.5s" data-aos="fade-up">
+            <h3>제품문의<br /><span style="font-size:0.7em;color:rgba(255,255,255,.5)">PRODUCT INQUIRY</span></h3>
+
+            <!-- 제품문의 폼 시작 -->
+            <form action="/Contact/Inquiry_action" name="frm" id="frm" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-4">
+                        <label for="">이름<span>*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="Name" id="Name" type="text" maxlength="50" title="이름">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-4">
+                        <label for="">이메일<span>*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="email" id="email" type="text" maxlength="50" title="이메일">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6" style="margin-top: 10px; line-height:3em;">
+                    <div class="col-sm-4">
+                        <label for="">회사명<span>*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="company" id="company" type="text" maxlength="50" title="회사명">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-4">
+                        <label for="">부서<span>*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="department" id="department" type="text" maxlength="50" title="부서">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-4">
+                        <label for="">연락처<span>*</span></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="tel" id="tel" type="number" maxlength="50" title="연락처">
+                    </div>
+                </div>
+                <div class="form-group col-sm-12" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-2">
+                        <label for="">문의 내용<span>*</span></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="Contents" id="Contents" type="text" title="내용을 입력하세요." style="min-height:130px;"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align: center; margin-bottom: 25px;">
+                    <div onclick="save_it()" class="btn btn-default" style="transition:ease 0.4s;margin:40px auto;font-weight:500;cursor:pointer;"><text>문의하기</text></div>
+                </div>
+            </form>
+            <!-- 제품문의 폼 끝 -->
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#myCarousel1').carousel({ interval: 3500, pause: false });
+    })
+    function save_it() {
+        check("name,email,company,department,tel,contents", "frm");
+        alert("문의 내용이 등록되었습니다.")
+    }
+</script>

@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Contact/Data 자료실 -->
+
+<style>
+    .sel:before {
+        left: 41%;
+    }
+
+    .sel_depart:hover::before {
+        left: 41%;
+    }
+
+    @@media (max-width: 1279px) {
+        .sel:before {
+            left: 40%;
+        }
+
+        .sel_depart:hover::before {
+            left: 40%;
+        }
+    }
+</style>
+
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-4.jpg');background-position:bottom center">
+        <h1 class="sub_title" style="">이메일무단수집거부</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">이메일무단수집거부</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-2 col-xs-4 col-xs-offset-2  sel_depart m_menu">
+                <a href="/Home/Privacy">개인정보처리방침</a>
+            </div>
+            <div class="col-md-2 col-xs-4 sel_depart sel m_menu">
+                <a href="/Home/Disable">이메일무단수집거부</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12">
+        <div class="container ptb-30" style="min-height:46vh">
+            <div class="privacy-txt" style="background:#f6f6f6;margin:30px auto">
+                본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며, 이를 위반 시 정보통신망 이용촉진 및 정보보호 등에 관한 법률에 의해 형사 처벌됨을 유념하시기 바랍니다.
+            </div>
+        </div>
+    </div>
+</div>

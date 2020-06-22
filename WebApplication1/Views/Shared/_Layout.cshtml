@@ -1,0 +1,104 @@
+﻿<!--Template Name: vacayhome
+File Name: home.html
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/icons/favicon.png" />
+    <link rel="canonical" href="http://GLTECH.kr/">
+    <title>GLTECH</title>
+    <meta name="description" content="GLTECH">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GLTECH">
+    <meta property="og:description" content="GLTECH, gltech, 지엘테크">
+    <meta property="og:image" content="/images/icons/favicon.png">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/flexy-menu.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <!-- Script template -->
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/flexy-menu.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/Content/common.js"></script>
+
+    <!-- Scroll Animate template -->
+    <link href="~/css/aos.css" rel="stylesheet" />
+    <script src="~/js/aos.js"></script>
+
+    <!-- Thumbnail Gallery template -->
+    <link href="~/css/thumbnail-gallery.css" rel="stylesheet" />
+    <link href="~/css/baguetteBox.min.css" rel="stylesheet" />
+    <script src="~/js/baguetteBox.min.js"></script>
+
+</head>
+<body>
+
+    <div id="header">
+    </div>
+    <div>
+        @RenderBody()
+        <a id="topbutton"></a>
+    </div>
+    <div id="footer">
+
+        @Html.Partial("/Views/Shared/Footer.cshtml")
+
+    </div>
+
+
+
+
+</body>
+
+</html>
+<script>
+    $(function () {
+        initNavigation();
+    })
+    var btn = $('#topbutton');
+
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+      } else {
+        btn.removeClass('show');
+      }
+    });
+
+    btn.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, '300');
+    });
+
+    //var clearfix = $('.clearfix');
+    //var logo = $('.clearfix img');
+    //$(window).scroll(function() {
+    //  if ($(window).scrollTop() > 800) {
+    //      clearfix.addClass('clearfix_show');
+    //      logo.attr('src', '/images/logo/logo.png');
+    //  } else {
+    //      clearfix.removeClass('clearfix_show');
+    //      logo.attr('src', '/images/logo/logo1.png');
+    //  }
+    //});
+</script>
+<script>
+    AOS.init();
+</script>

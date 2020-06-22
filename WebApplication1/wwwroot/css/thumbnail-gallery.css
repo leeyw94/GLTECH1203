@@ -1,0 +1,94 @@
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 70px;
+    font-weight: bold;
+    color: #58595a;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 18px;
+    color: #85878c;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+.tz-gallery .thumbnail {
+    padding: 0;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    transition: 0.15s ease-in-out;
+}
+
+.tz-gallery .thumbnail:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.tz-gallery .lightbox img {
+    border-radius: 4px 4px 0 0;
+}
+
+.tz-gallery .caption{
+    padding: 26px 30px;
+    text-align: center;
+}
+
+.tz-gallery .caption h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.tz-gallery .caption p {
+    font-size: 12px;
+    color: #7b7d7d;
+    margin: 0;
+}
+
+.tz-gallery1 {
+    padding: 40px;
+}
+
+    .tz-gallery1 .thumbnail {
+        padding: 0;
+        margin-bottom: 30px;
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        transition: 0.15s ease-in-out;
+    }
+
+        .tz-gallery1 .thumbnail:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+    .tz-gallery1 .lightbox img {
+        border-radius: 4px 4px 0 0;
+    }
+
+    .tz-gallery1 .caption {
+        padding: 26px 30px;
+        text-align: center;
+    }
+
+        .tz-gallery1 .caption h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .tz-gallery1 .caption p {
+            font-size: 12px;
+            color: #7b7d7d;
+            margin: 0;
+        }
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}

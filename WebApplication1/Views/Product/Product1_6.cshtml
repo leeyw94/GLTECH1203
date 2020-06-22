@@ -1,0 +1,158 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Product/Product1 3D측정기 -->
+
+<style>
+    .tz-gallery {
+        padding: 0;
+    }
+
+        .tz-gallery .caption {
+            padding: 10px 23px;
+        }
+
+            .tz-gallery .caption h3 {
+                font-weight: 500;
+            }
+</style>
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-2.jpg');background-position:bottom center">
+        <h1 class="sub_title" style="">측정기</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Product/Product1">Product</a></li>
+                <li class="breadcrumb-item active" aria-current="page">측정기</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-1 col-xs-3 col-md-offset-5 col-xs-offset-3 sel_depart sel m_menu">
+                <a href="/Product/Product1">측정기</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart m_menu">
+                <a href="/Product/Product2">자동화설비</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12">
+
+        <!-- 모델 네비게이션 시작 -->
+        <div class="model-nav" style="transition:0.5s;" data-aos="fade-up">
+            <div class="model-list">
+                <a href="/Product/Product1">SURF<span class="m-color">i</span>EW-ACADEMY</a>
+                <a href="/Product/Product1_2">SURF<span class="m-color">i</span>EW-COMPACT</a>
+                <a href="/Product/Product1_3">SURF<span class="m-color">i</span>EW-ELITE</a>
+                <a href="/Product/Product1_4">SURF<span class="m-color">i</span>EW-PRO</a>
+                <a href="/Product/Product1_5">SURF<span class="m-color">i</span>EW-MASTER</a>
+                <a href="/Product/Product1_6" style="font-weight:900">SURF<span class="m-color">i</span>EW-PROBE</a>
+            </div>
+        </div>
+        <!-- 모델 네비게이션 끝 -->
+
+        <div class="col-md-8 col-md-offset-2 ptb-20">
+            <div class="col-md-12">
+                <img src="~/images/Product/p-probe.jpg" class="img-responsive" style="transition:1s;float:right" data-aos="fade-up" />
+                <a class="btn btn-danger catalog-btn" style="transition:1s;float:right" data-aos="fade-up" onclick="miniWin('/Product/popup?popup=Y')">카탈로그 다운로드</a>
+            </div>
+            <div class="col-md-12 clear" style="margin-top:7%;transition:1.5s;" data-aos="fade-up">
+                <h4 class="m-color pb-20">Specification</h4>
+                <table class="table-info red">
+                    <tbody>
+                        <tr>
+                            <th>Scan Method</th>
+                            <td>Piezo@Capacitive Sensor (Linearity error≤0.05</td>
+                        </tr>
+                        <tr>
+                            <th>Scan Range</th>
+                            <td>
+                                ≤150um
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Objective Lens Turret </th>
+                            <td>
+                                5 Lens Available  (Automatic Turret)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Zoom Lens </th>
+                            <td>
+                                1.0x
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Camera </th>
+                            <td>1/2" Mono Camera </td>
+                        </tr>
+                        <tr>
+                            <th>Illumination </th>
+                            <td>
+                                White Light LED
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Filter</th>
+                            <td>2 Filter vailable (Automatic)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12 clear" style="margin-top:7%;transition:1.5s;" data-aos="fade-up">
+                <h4 class="m-color pb-20">
+                    Option
+                </h4>
+                <table class="table-info red">
+                    <tbody>
+                        <tr>
+                            <th>Interference Lens </th>
+                            <td>
+                                2.5x, 5.0x, 10x, 20x, 50x, 100x
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Objective Lens </th>
+                            <td>
+                                2.5x, 5.0x, 10x, 20x, 50x, 100x
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Zoom Lens </th>
+                            <td>
+                                0.55x, 0.75x, 1.0x, 1.5x, 2.0x
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Work Table
+                            </th>
+                            <td>
+                                Porous Vacuum Type Rotatio Table
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Standard Sample
+                            </th>
+                            <td>
+                                Height Standard<br />Lateral Standard<br />Roughness Standard
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Thumbnail Gallery Script -->
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>

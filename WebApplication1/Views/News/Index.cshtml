@@ -1,0 +1,150 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- News/Index 공지사항 -->
+
+<style>
+    .form-control.search {
+        padding: 20px 10px;
+        border: solid 1px #333;
+    }
+
+    .form-group .search-btn {
+        width: 42px;
+        height: 42px;
+        background-image: url(/images/News/search.jpg);
+        background-size: cover;
+        cursor: pointer;
+    }
+    .row.clear {
+            padding-bottom:30px;
+            padding-top:20px;
+            border-bottom:1px solid #ddd;
+        }
+    .row.clear:last-child {
+        border:0;
+    }
+    .sel:before {
+            left: 42%;
+        }
+        .sel_depart:hover::before{
+            left:42%
+        }
+    @@media (max-width: 767px) {
+        
+        .sel:before {
+            left: 30%;
+        }
+        .sel_depart:hover::before{
+            left:30%
+        }
+    }
+</style>
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-5.jpg');background-position:center center">
+        <h1 class="sub_title" style="">공지사항</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/News/Index">Contact</a></li>
+                <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 sel_depart sel m_menu">
+                <a href="/News/Index">공지사항</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12 clear">
+        <div class="col-md-8 col-md-offset-2 ptb-20">
+            <div class="col-md-8 col-md-offset-2 clear">
+
+                <!-- 공지사항 검색 폼 시작 -->
+                <form action="/News/Index" method="post" id="form1" name="form1">
+                    <div class="inner-form">
+                        <div class="form-group col-xs-10">
+                            <input class="form-control search" id="search" type="text" placeholder="검색어를 입력하세요." />
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <div class="search-btn" type="button">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- 공지사항 검색 폼 끝 -->
+
+            </div>
+            <div class="col-md-12 ptb-20 clear">
+
+                <!-- 공지사항 리스트 시작 -->
+                <div class="row clear" style="margin:0;transition:0.5s;" data-aos="fade-up">
+                    <a href="#" style="width:100%;" class="a-over" target="_blank">
+                        <div class="col-sm-9" style="padding:3%">
+                            <h3>Automotive Technology EXPO</h3>
+                            <p class="caption">
+                                전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                                장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                                주        최 : 마이스포럼<br />
+                                출품제품 : 3D 형상 측정기<br />
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row" style="overflow:hidden;">
+                                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="row clear" style="margin:0;transition:1s;" data-aos="fade-up">
+                    <a href="#" style="width:100%;" class="a-over" target="_blank">
+                        <div class="col-sm-9" style="padding:3%">
+                            <h3>Automotive Technology EXPO</h3>
+                            <p class="caption">
+                                전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                                장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                                주        최 : 마이스포럼<br />
+                                출품제품 : 3D 형상 측정기<br />
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row" style="overflow:hidden;">
+                                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="row clear" style="margin:0;transition:1.5s;" data-aos="fade-up">
+                    <a href="#" style="width:100%;" class="a-over" target="_blank">
+                        <div class="col-sm-9" style="padding:3%">
+                            <h3>Automotive Technology EXPO</h3>
+                            <p class="caption">
+                                전시기간 : 2018년 07월 18일 ~ 07월 20일<br />
+                                장        소 : 서울 AT CENTER (부스번호 F12)<br />
+                                주        최 : 마이스포럼<br />
+                                출품제품 : 3D 형상 측정기<br />
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row" style="overflow:hidden;">
+                                <img src="~/images/index/news1.jpg" class="img-responsive img-over" style="width:100%;" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- 공지사항 리스트 끝 -->
+
+            </div>
+        </div>
+    </div>
+</div>

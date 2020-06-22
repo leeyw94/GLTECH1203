@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Company/Location 오시는길 -->
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-7.jpg');">
+        <h1 class="sub_title" style="">오시는길</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Company/Greetings">Company</a></li>
+                <li class="breadcrumb-item active" aria-current="page">오시는길</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-1 col-xs-3 col-md-offset-4 sel_depart m_menu">
+                <a href="/Company/Greetings">인사말</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart m_menu">
+                <a href="/Company/History">연혁</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart m_menu">
+                <a href="/Company/Patents">특허/인증</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart sel m_menu">
+                <a href="/Company/Location">오시는길</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12 pt-70">
+        <div class="col-md-8 col-md-offset-2 pb-70">
+            <div class="loc-search"><a class="btn btn-default " href="http://naver.me/xm50NdW3" target="_blank">빠른 길 찾기</a></div>
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-md-offset-2 loc-box clear" style="transition:0.5s;" data-aos="fade-up">
+                    <img src="~/images/Company/loca1.png" class="img-responsive" />
+                    <h4>회사주소</h4>
+                    <p>
+                        대전광역시 유성구 테크노4로 17, 제비105호, 제비106호(관평동,비즈센터)
+                    </p>
+                </div>
+                <div class="col-md-2 col-sm-3 loc-box" style="transition:1s;" data-aos="fade-up">
+                    <img src="~/images/Company/loca2.png" class="img-responsive" />
+                    <h4>대표전화</h4>
+                    <p>
+                        042-934-2772
+                    </p>
+                </div>
+                <div class="col-md-2 col-sm-3 loc-box" style="transition:1.5s;" data-aos="fade-up">
+                    <img src="~/images/Company/loca3.png" class="img-responsive" />
+                    <h4>팩스번호</h4>
+                    <p>
+                        042-934-2773
+                    </p>
+                </div>
+                <div class="col-md-2 col-sm-3 loc-box" style="transition:2s;" data-aos="fade-up">
+                    <img src="~/images/Company/loca4.png" class="img-responsive" />
+                    <h4>이메일</h4>
+                    <p>
+                        sales@admin_basic.kr
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

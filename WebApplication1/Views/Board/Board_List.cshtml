@@ -1,0 +1,397 @@
+﻿
+@model ReflectionIT.Mvc.Paging.PagingList<GLtech.Models.BoardList>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+@using admin_basic.Util;
+
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+@{
+    int i = 0;
+    string Mode = "i";
+    if (string.IsNullOrEmpty(Context.Request.Query["cate"]))
+    {
+        Mode = "i";
+    }
+    else
+    {
+        Mode = "e";
+    }
+    string cate = Context.Request.Query["cate"];
+
+    if (string.IsNullOrEmpty(cate))
+    {
+        cate = ViewBag.카테고리;
+    }
+
+    string search_all_type = ViewBag.search_all_type ?? "1";
+    string search_all = ViewBag.search_all ?? "";
+    string main_bg_color = "azure";
+    string board_style = "tbl_red";
+
+    var start = this.Model.StartPageIndex;
+    var stop = this.Model.StopPageIndex;
+
+    string urlcheck = Context.Request.Path;
+    string url_query = Context.Request.QueryString.ToString();
+    string page_directory = urlcheck.Split('/')[1];
+    string page_site = "xx";
+
+    try
+    {
+        page_site = urlcheck.Split('/')[2] + url_query;
+    }
+    catch
+    {
+        page_site = "index";
+    }
+
+    try
+    {
+
+        board_style = admin_basic.Util.get_word.style_color(main_bg_color);
+    }
+    catch
+    {
+
+
+    }
+
+    string check_menu = "a";
+
+
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var cate = "@cate";
+        var mode = '@Mode';
+        var search_all_type = '@search_all_type'
+
+        var file_show = '@ViewBag.파일';
+
+        if (search_all_type == "") {
+            search_all_type = "1";
+        }
+
+        if (file_show == "Y") {
+            $(".file_show").css("display", "table-cell");
+        }
+        else {
+             $(".file_show").css("display", "none");
+        }
+
+
+        $('#search_all_type option[value=' + search_all_type + ']').attr('selected', 'selected');
+
+
+
+    });
+
+    function search() {
+        var cate = $("#BD_BM_idx").val();
+
+        location.href = "/board/board_list/?cate=" + cate;
+
+    }
+
+
+    function search_it() {
+
+        //로딩바=====================================================================================================================================================
+        $('<div id="loading" style="position: absolute; z-index:20;"> <img src ="/images/common/ajax-loader11.gif" /></div>')
+            .insertBefore('#result').ajaxStart(function () {
+                $(this).show();
+
+            }).ajaxStop(function () {
+                $(this).hide();
+            });
+                //========================================================================================================================================================
+
+
+
+        $("#form1").submit();
+    }
+
+    function go_link(idx) {
+
+        var cate = "@cate";
+
+        location.href = "/board/boardview/?idx=" + idx + "&cate=" + cate;
+
+    }
+
+    function go_write() {
+        var cate = "@cate";
+
+
+        location.href = "/board/boardwrite/?cate=" + cate;
+
+    }
+
+</script>
+<style>
+    .table thead tr {
+        border-bottom: solid 2px #000 !important;
+        border-top: solid 1px #000
+    }
+
+    .table tbody td {
+        border-bottom: dotted 1px #444 !important;
+        font-size: 14px;
+        font-family: 'NanumSquareR','sans-serif', Arial, serif;
+    }
+
+    .table tbody tr:last-child {
+        border-bottom: solid 1px #444 !important;
+    }
+
+    #search_all_type {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url(/images/common/caret-down1.png) no-repeat 92% 48%;
+    }
+
+        #search_all_type::-ms-expand {
+            display: none;
+        }
+    .form-control.search {
+        padding: 20px 10px;
+        border: solid 1px #333;
+    }
+
+    .form-group .search-btn {
+        width: 42px;
+        height: 42px;
+        background-image: url(/images/News/search.jpg);
+        background-size: cover;
+        cursor: pointer;
+    }
+
+    .row.clear {
+        padding-bottom: 30px;
+        padding-top: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .row.clear:last-child {
+            border: 0;
+        }
+
+    .sel:before {
+        left: 42%;
+    }
+
+    .sel_depart:hover::before {
+        left: 42%
+    }
+
+    @@media (max-width: 767px) {
+
+        .sel:before {
+            left: 30%;
+        }
+
+        .sel_depart:hover::before {
+            left: 30%
+        }
+    }
+</style>
+
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-5.jpg');background-position:center center">
+        <h1 class="sub_title" style="">공지사항</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/News/Index">Contact</a></li>
+                <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 sel_depart sel m_menu">
+                <a href="/News/Index">공지사항</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+    <div class="col-md-12 clear">
+        <div class="col-md-8 col-md-offset-2 ptb-20">
+            <table class="tbl_azure">
+                <thead>
+                    <tr>
+                        <th class="text-center web_only">
+                            순번
+
+                        </th>
+                        <th class="text-center">
+
+                            제목
+
+
+                        </th>
+
+                        <th class="text-left file_show" style="max-width:;"> 첨부</th>
+
+
+                        <th class="text-center">작성자</th>
+
+
+                        <th>작성일</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (GLtech.Models.BoardList item in Model)
+                    {
+                        <tr>
+                            <td class="text-center web_only">
+                                <span>@item.idx</span>
+
+                            </td>
+                            <td style="text-align:left">
+
+                                <span onclick="go('/board/boardview/?idx=@item.idx&cate=@cate') " style="color:#3b9bed;cursor: pointer" class="loading">@item.title</span>
+
+                            </td>
+
+
+
+                            <td class="file_show text-overflow" style="max-width: 50px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">
+                                @{file_link(item.fileId);}
+
+                            </td>
+
+
+                            <td class="text-center text-overflow">@item.writer</td>
+                            <td class="text-center">
+
+                                @item.writeDate.ToString("yy-MM-dd")
+
+
+                            </td>
+                        </tr>
+                        i++;
+
+                    }
+                </tbody>
+            </table>
+            @if (ViewBag.권한 == "Y" || ViewBag.권한 == "E")
+            {
+                <div class="row" style="margin:20px 0 5px 0;">
+
+                    <div class="col-md-2 btn btn-fill btn-primary loading" style="float:right;width:110px;text-align:center ;cursor: pointer;" onclick="go_write()">
+                        <span> 등록</span>
+                    </div>
+
+                </div>
+            }
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <nav aria-label="Suppliers navigation example">
+                        <vc:pager paging-list="@Model" />
+                    </nav>
+
+                </div>
+            </div>
+            <hr />
+            <form id="form1" name="form1" action="/Board/Board_list" method="post">
+                <div style="width:100% ;display:table;margin-bottom:10px">
+                    <div class="search-form" style="display:table;margin:0 auto">
+                        <div class="col-xs-4 bottom" style="margin-bottom:20px">
+                            <input type="hidden" name="cate" id="cate" value="@cate" />
+                            <select name="search_all_type" id="search_all_type" class="form-control selectpicker">
+                                <option value="1">Title + Content</option>
+                                <option value="2">Title</option>
+                                <option value="3">Writer</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xs-5 bottom" style="margin-bottom:20px">
+                            <input type="text" name="search_all" id="search_all" class="form-control" value="@ViewBag.search_all" />
+                        </div>
+                        <div class="col-xs-3 bottom" style="margin-bottom:20px">
+                            <div class="btn btn-default btn-fill btn-wd btn-default" onclick="search_it() ">  검색</div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@functions {
+
+    public void order_link(string what, string page_site, string language)
+    {
+        if (Context.Request.Query["sortExpression"] == "-" + what)
+        {
+            page_site = page_site.Replace("sortExpression=", "");
+
+
+            <a href="@page_site&sortExpression=@what">▲ </a>
+
+        }
+        else
+        {
+            page_site = page_site.Replace("sortExpression=", "");
+            <a href="@page_site&sortExpression=-@what">▼ </a>
+        }
+
+    }
+
+    public void file_link(string id)
+    {
+
+
+
+        GLtech.Models.db_e db = new GLtech.Models.db_e();
+
+        var _list = (from a in db.BoardFile where a.Md_id == id && a.use_yn != "N" select a).ToList();
+
+        if (_list.Count > 0)
+        {
+            foreach (var item in _list)
+            {
+
+                string file_size = (Convert.ToDouble(item.file_size) / 1000).ToString("###,###") + "Kbyte";
+
+                <img src="/images/icon/@get_word.file_type(item.file_ex)" style="width:20px;margin-right:10px;cursor:pointer" title="@file_size" onclick="file_down('@item.ImagePath','@item.fileName')" />
+
+            }
+        }
+
+
+
+    }
+
+
+
+}
+<form id="file_download" action="~/Board/GetDownload" method="post">
+    <input type="hidden" id="link" name="link" />
+    <input type="hidden" id="file_name" name="file_name" />
+
+</form>
+<script>
+
+    function file_down(s, n) {
+
+        $("#link").attr("value", s);
+        $("#file_name").attr("value", n);
+        $("#file_download").submit();
+
+    }
+
+</script>

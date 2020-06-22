@@ -1,0 +1,206 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Product/Product1 3D측정기 -->
+
+<style>
+    .tz-gallery {
+        padding: 0;
+    }
+
+        .tz-gallery .caption {
+            padding: 10px 23px;
+        }
+
+            .tz-gallery .caption h3 {
+                font-weight: 500;
+            }
+</style>
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-2.jpg');background-position:bottom center">
+        <h1 class="sub_title" style="">측정기</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Product/Product1">Product</a></li>
+                <li class="breadcrumb-item active" aria-current="page">측정기</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-1 col-xs-3 col-md-offset-5 col-xs-offset-3 sel_depart sel m_menu">
+                <a href="/Product/Product1">측정기</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart m_menu">
+                <a href="/Product/Product2">자동화설비</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12">
+
+        <!-- 모델 네비게이션 시작 -->
+        <div class="model-nav" style="transition:0.5s;" data-aos="fade-up">
+            <div class="model-list">
+                <a href="/Product/Product1">SURF<span class="m-color">i</span>EW-ACADEMY</a>
+                <a href="/Product/Product1_2" style="font-weight:900">SURF<span class="m-color">i</span>EW-COMPACT</a>
+                <a href="/Product/Product1_3">SURF<span class="m-color">i</span>EW-ELITE</a>
+                <a href="/Product/Product1_4">SURF<span class="m-color">i</span>EW-PRO</a>
+                <a href="/Product/Product1_5">SURF<span class="m-color">i</span>EW-MASTER</a>
+                <a href="/Product/Product1_6">SURF<span class="m-color">i</span>EW-PROBE</a>
+            </div>
+        </div>
+        <!-- 모델 네비게이션 끝 -->
+
+        <div class="col-md-8 col-md-offset-2 ptb-20">
+            <div class="col-md-12">
+                <img src="~/images/Product/p-compact.jpg" class="img-responsive" style="transition:1s;float:right" data-aos="fade-up" />
+                <a class="btn btn-danger catalog-btn" style="transition:1s;float:right" data-aos="fade-up" onclick="miniWin('/Product/popup?popup=Y')">카탈로그 다운로드</a>
+            </div>
+            <div class="col-md-12 clear" style="margin-top:7%;transition:1.5s;" data-aos="fade-up">
+                <h4 class="m-color pb-20">Specification</h4>
+                <table class="table-info red">
+                    <tbody>
+                        <tr>
+                            <th>Vertical Resolution</th>
+                            <td>VSI,VEI < 0.5nm, VPI < 0.1nm</td>
+                        </tr>
+                        <tr>
+                            <th>Pixel Resolution</th>
+                            <td>
+                                0.03~7.2um (Depends on magnification and camera)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Step Height Repeatability </th>
+                            <td>
+                                ≤0.1% 1 sigma
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Scan Velocity </th>
+                            <td>
+                                7.5um/sec (user 4 selectable)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Scan Method
+                            </th>
+                            <td>
+                                Piezo@Capacitive Sensor (Linearity error≤0.05%)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Scan Range </th>
+                            <td>
+                                ≤150um (Piezo Option≤300um)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Objective Lens Turret </th>
+                            <td>
+                                5 Lens Available (Manual Turret)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Zoom Lens </th>
+                            <td>
+                                1.0x
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Camera </th>
+                            <td>
+                                1/2" Mono Camera (Option : 2/3", 1")
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Illumination</th>
+                            <td>White Light LED</td>
+                        </tr>
+                        <tr>
+                            <th>Filter</th>
+                            <td>
+                                2 Filter Available (Automatic)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Sample Reflectivity </th>
+                            <td>
+                                0.05~100%
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Sample Weight </th>
+                            <td>
+                                ≤ 5kg
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>X/Y Axis Stroke </th>
+                            <td>
+                                50 x 50mm (Manual)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Z Axis Stroke </th>
+                            <td>
+                                30mm (Manual Coarse&Fine)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tilt Axis Stroke </th>
+                            <td>
+                                ±3º (Manual)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Work Table Size </th>
+                            <td>
+                                120 x 120mm
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Vibration Isolation </th>
+                            <td>
+                                Passive Type (Vertical Resonance : 2.5Hz)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Weight </th>
+                            <td>
+                                about 10kg
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Input Power </th>
+                            <td>
+                                2 ф , 110V/220V (±10%) 15A, 50/60Hz
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Software </th>
+                            <td>
+                                Surface View / Surface Map &#64; Window10 64bit
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    *VSI : Visible Sandoz Interferometry    *VEI : Visible Envelop Interferometry   *VSI : Visible Phase-shift Interferometry
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Thumbnail Gallery Script -->
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>

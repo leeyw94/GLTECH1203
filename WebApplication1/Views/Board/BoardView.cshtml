@@ -1,0 +1,430 @@
+﻿@using GLtech.Models
+@model GLtech.Models.BoardList
+@using admin_basic.Util;
+@{
+
+    string cate = Context.Request.Query["cate"];
+    string idx = Context.Request.Query["idx"];
+    string file_dir = ViewBag.file_dir;
+
+    string user_auth = "N";
+    string alert_user = "N";
+
+    if (ViewBag.관리자 == "Y")
+    {
+        user_auth = "Y";
+    }
+
+    DateTime _today = DateTime.Today.AddDays(1);
+    DateTime _wdate = Model.writeDate;
+
+    TimeSpan ts = _today - _wdate;
+    int days = Convert.ToInt32(ts.TotalDays);
+
+    string timecheck = "G" + DateTime.Now.ToString("yyyyMMddHH") + cate + Context.Request.Query["idx"];
+
+
+    if (Model.writer == User.Identity.Name && days <= 10)
+    {
+        user_auth = "Y";
+
+
+    }
+
+    if (Model.writer == User.Identity.Name && days > 10)
+    {
+        alert_user = "Y";
+    }
+}
+@{string language = "korea"; }
+
+<link href="~/Content/Board/board.css" rel="stylesheet" />
+<script src="~/Content/Board/Board.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var auth_yes = "@user_auth";
+        var alert_user = "@alert_user";
+       // $('.comment_memo').val().replace("/\n/g", "<br>");
+        var login_check = "@ViewBag.로그인";
+
+        var comment_view = "@ViewBag.코멘트";
+
+        if (comment_view == "Y") {
+            $(".comment_view").css("display", "block");
+
+
+        }
+        else {
+
+             $(".comment_view").css("display", "none");
+
+        }
+
+
+        if (login_check == "Y") {
+            $("#non_form").css("display", "none");
+            $("#login_form").css("display", "table");
+
+        }
+        else {
+            $("#non_form").css("display", "table");
+            $("#login_form").css("display", "none");
+        }
+
+
+            if (auth_yes == "Y") {
+                $(".check_auth").css("display", "block");
+            }
+
+            if (alert_user == "Y") {
+
+                $("#user_edit").html("<div class='alert-danger' style='width:100%;text-align:center;float:right;padding:5px;margin:10px 0;color:#fff'>※  This is your article written @days days ago. Please contact the administrator for deletion and modification. You can not delete and modify the article 10 days later</div>");
+            }
+
+    });
+
+    function non_member_login() {
+
+        var non_name = $("#non_name").val();
+        var non_password = $("#non_password").val();
+        var idx = "@idx";
+        var cate = "@cate";
+        if (non_name == "") {
+
+            alert("이름을 입력해주세요");
+            return;
+        }
+
+        else if (non_password == "") {
+
+            alert("비밀번호를 입력해주세요");
+            return;
+        }
+
+        else {
+            //한글깨짐 방지
+            non_name = escape(non_name);
+            non_password = escape(non_password);
+
+            var URL = "/board/non_member_login?non_name=" + non_name + "&non_password=" + non_password+"&idx="+idx+"&cate="+cate;
+
+            $.get(URL, function (data) {
+
+                $("#result").html(data);
+            });
+        }
+
+    }
+
+
+</script>
+
+<style>
+
+    .form-horizontal .form-group {
+        border-bottom: 0;
+    }
+
+    .form-horizontal .control-label {
+        background: none !important;
+    }
+
+    header {
+        background-image: url('/img/user/mainbackground.jpg');
+        background-size: cover;
+    }
+
+    @@media (max-width:1279px) {
+        .box {
+            background-image: url('/img/user/mainbackground.jpg');
+        }
+    }
+</style>
+<body style="overflow-x:hidden;">
+
+    <div class="container" style="margin-top:50px;margin-bottom:20px;min-height:73vh;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+
+                    <div class="content ">
+
+                        <div class="form-horizontal ">
+
+                            <div class="card-header" data-background-color="purple">
+                                <div class="sub_title_black"> @Model.title </div>
+                                <p class="category">
+
+                                    <div class="row">
+
+                                        <div class="col-md-12 text-right" style="color: #4d4c4c; font-size: 12px;font-family: 'NanumSquareR','serif', Arial, sans-serif; ">
+
+                                            @if (Model.editDate != null)
+                                            {
+                                                <span> @Model.editDate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm")</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@Model.writeDate.ToString("yyyy-MM-dd HH:mm")</span>
+                                            }
+                                            | @Model.writer | @days days elapsed
+                                        </div>
+                                        <div id="user_edit"></div>
+                                    </div>
+                                    <div class="col-md-12 text-right" style="margin:10px 5px">
+                                        @foreach (var item in ViewBag.읽은사람 as List<BoardRread>)
+                                        {
+                                            <span style="margin-right:10px;color:#195c9d;font-size:0.7rem;">ㆍ @item.user_name @item.read_date.ToString("yyyy.MM.dd HH:mm")</span>
+                                        }
+
+
+                                    </div>
+                                </p>
+
+                            </div>
+                            <hr />
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-12" style="font-family: 'NanumSquareR','serif', Arial, sans-serif">
+                                        <style>
+                                            img {
+                                                max-width: 100%;
+                                            }
+                                        </style>
+                                        @Html.Raw(Model.content)
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> </label>
+                                    <div class="col-md-10">
+                                        @if (ViewBag.이미지리스트카운트 > 0)
+                                        {
+
+                                            <div class="row">
+                                                <div id="dialog" style="display: none; z-index: 999;position:relative;top:0">
+                                                    <img id="photo_big" />
+                                                </div>
+
+                                            </div>
+
+
+
+                                            @foreach (var item in ViewBag.이미지리스트 as List<BoardFile>)
+                                            {
+                                                <div style="width:130px;float:left;margin-left:10px">
+
+                                                    <div class="card">
+                                                        <div class="card-header" style="height:100px">
+                                                            @if (get_word.img_check(item.file_ex) == "img")
+                                                            {
+
+                                                                <img src="@item.sImagePath" style="cursor:pointer;max-height:100px" onclick="photo_show('Images','@item.ImagePath')" />
+                                                            }
+                                                            else
+                                                            {
+
+                                                                <img src="~/images/no_img.gif" style="max-height:100px;cursor:pointer"   onclick="file_down('@item.ImagePath','@item.fileName')"/>
+
+
+                                                            }
+                                                        </div>
+
+
+                                                        <div class="card-footer">
+                                                            <div class="stats" style="font-size: 11px; padding:5px;text-align:center">
+                                                                <span>
+
+                                                                    @if (item.r_date != null)
+                                                                    {
+                                                                        DateTime _date = Convert.ToDateTime(@item.r_date);
+                                                                        <span>
+                                                                            @_date.Year.@_date.Month.@_date.Day
+
+                                                                        </span>
+                                                                    }
+
+                                                                </span>
+                                                                <span style="margin-left:5px"> <img src="~/images/icon/@get_word.file_type(item.file_ex)" style="width:20px;margin-right:10px;cursor:pointer"  onclick="file_down('@item.ImagePath','@item.fileName')" />   </span>
+
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            }
+
+                                        }
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+                                            <div id="non_form" class="card col-md-12" style="border:solid 1px#0094ff;padding:10px;background:#edf6fa;width:100%">
+                                                @if (ViewBag.권한 == "G")
+                                                {
+
+                                                    <p style="text-align:left;font-size:15px;text-indent:5px;font-weight:bold ">ㆍ비회원 로그인 </p>
+
+                                                    <label class="col-sm-2 control-label" style="max-width:100px;margin-bottom:10px;">이름</label>
+                                                    <div class="col-md-2" style="margin-bottom:10px;"><input type="text" name="non_name" id="non_name" class="form-control" /></div>
+
+                                                    <label class="col-sm-2 control-label" style="max-width:100px;margin-bottom:10px;">비밀번호</label>
+                                                    <div class="col-md-2" style="margin-bottom:10px;"><input type="password" name="non_password" id="non_password" class="form-control" /></div>
+
+                                                    <div class="col-md-1 btn btn-default btn-fill btn-wd   btn-info  " style="margin-right:10px;margin-bottom:20px;" onclick="non_member_login()">확인</div>
+
+                                                    <div id="none_edit" class="col-md-1 btn btn-danger  btn-fill btn-wd  " style="margin-right:10px;display:none;background-color:#c9302c;border:0;" onclick="go('/board/BoardWrite?cate=@cate&idx=@Model.idx&t=@timecheck')"> 수정</div>
+
+
+                                                }
+                                                <div class="col-md-1 btn btn-default btn-fill btn-wd   btn-default " style="margin-right:10px;margin-bottom:20px;" onclick="go('/board/board_list?cate=@cate')">
+                                                    목록
+
+                                                </div>
+                                            </div>
+
+
+
+                                            <div id="login_form" style="width:100%">
+
+                                                <div style="margin:0 auto;display:table ">
+                                                    <div class="col-md-4 btn  btn-fill  btn-default " style="margin-right:10px;display:table;width:100px;margin-bottom:20px;" onclick="go('/board/board_list?cate=@cate')">목록</div>
+                                                    @if (ViewBag.권한 == "E" || ViewBag.권한 == "G")
+                                                    {
+                                                        <div class="col-md-4 btn  btn-danger  btn-fill   " style="display:table;width:100px;margin-bottom:20px;background-color:#c9302c;border:0;" onclick="go('/board/BoardWrite?cate=@cate&idx=@Model.idx&t=@timecheck')"> 수정</div>
+
+                                                    }
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="comment_view" style="display:none">
+                            <hr style="border:solid 1px #a0a0a0  !important " />
+                            <form id="form1" name="form1" action="/board/BoardComment_action" method="post">
+                                <input type="hidden" name="cate" value="@cate" />
+                                <input type="hidden" name="BD_idx" value="@idx" />
+                                <input type="hidden" name="step" value="2" />
+                               
+
+                             
+
+                                <div class="row" style="border-bottom :solid 1px #e3e3e3;padding-bottom:10px;">
+                                    <div class="sub_title" style="font-weight: bold;margin-bottom:10px;padding-left:10px">Comments</div>
+                                    
+                                    @if (ViewBag.댓글수 > 0)
+                                    {
+                                <table class="table_comment ">
+                                   
+
+                                    @foreach (var item_commnet in ViewBag.댓글)
+                                    {
+                                        string auth_class = "display:none;";
+                                        if (ViewBag.관리자 == "Y")
+                                        {
+                                            auth_class = "display:block;";
+                                        }
+
+                                        <tr>
+                                            <td style="width:200px ;max-width:300px ;text-align:left;text-indent:20px">
+                                                ㆍ<span style="color:#0094ff; "> @item_commnet.writer</span> 
+                                            </td>
+                                            <td style="text-align:left">
+                                                @item_commnet.memo
+                                            </td>
+                                            <td style="width:150px !important ">
+                                                @item_commnet.write_date.ToString("yyyy-MM-dd: HH시mm분")
+                                            </td>
+                                            <td style="width:50px;text-align:center" class="auth_class">
+                                                <img src="~/images/common/s_icon_del.gif" style="width:16px;  cursor:pointer;@auth_class ;" onclick="del_url('/board/BoardComment_action?c_idx=@item_commnet.idx&BD_idx=@idx&cate=@cate&mode_type=E') " />
+                                            </td>
+                                            </tr>
+
+                                       
+
+                                    }
+                                </table>
+                                    }
+                                </div>
+
+
+                                <div class="row" style="margin-top:10px;">
+                                    <div class="form-group">
+
+                                        <div class="col-md-10 ">
+                                            <textarea class="form-control content" name="memo" id="memo" style="height:50px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-1 text-right">
+                                            <div class="btn btn-fill btn-info " style="width:100%;background-color:#31b0d5;border:0;" onclick="save_it()"> 저장</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="result"></div>
+</body>
+<script>
+
+    function save_it() {
+
+        check("memo", "form1");
+    }
+    function photo_show(title, url) {
+        $("#dialog").css("display", "block");
+
+        $(".ui-dialog-title").html(title);
+        $("#photo_big").attr("src", url);
+        $("#photo_big").css("max-width", "760px").css("cursor", "pointer");
+
+
+
+        $("#photo_big").on("click", function () {
+            $("#dialog").css("display", "none");
+
+
+
+        });
+    }
+</script>
+<form id="file_download" action="~/Board/GetDownload" method="post">
+    <input type="hidden" id="link" name="link" />
+    <input type="hidden" id="file_name" name="file_name" />
+
+</form>
+<script>
+
+    function file_down(s, n) {
+
+        $("#link").attr("value", s);
+        $("#file_name").attr("value", n);
+        $("#file_download").submit();
+
+    }
+
+
+</script>

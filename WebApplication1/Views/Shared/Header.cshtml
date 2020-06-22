@@ -1,0 +1,110 @@
+﻿
+
+<header class="clearfix">
+    <div class="box" style="text-align:center;">
+        <div class="row" style=" margin:0; ">
+            <div class="col-md-1"></div>
+            <div class="col-md-2" id="menu-responsive">
+                <h1 style="float:right"><a href="/Home/Index"><img class="img-responsive" style="height:60px;margin-left:10px" src="/images/logo/logo1.png" alt="logo"></a></h1>
+            </div>
+            <div class="col-md-8 flexy-container" id="menu-responsive">
+                <ul class="flexy-menu lightmenu">
+                    <li id="nav_company" class="menuover">
+                        <a class="menulink" href="/Company/Greetings"><span>Company</span></a>
+                        <ul id="size" class="size">
+                            <li><a href="/Company/Greetings" class="sublink">인사말</a></li>
+                            <li><a href="/Company/History" class="sublink">연혁</a></li>
+                            <li>
+                                <a href="/Company/Patents#part1" class="sublink">특허/인증</a>
+                            </li>
+                            <li><a href="/Company/Location" class="sublink">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li id="nav_technology" class="menuover">
+                        <a class="menulink" href="/Technology/Technology1"><span>Technology</span></a>
+                        <ul id="size" class="size">
+                            <li>
+                                <a href="/Technology/Technology1#page_1" class="sublink">3D 형상 측정기</a>
+                            </li>
+                            <li>
+                                <a href="/Technology/Technology1#page_2" class="sublink">측정원리</a>                                
+                            </li>
+                            <li>
+                                <a href="/Technology/Technology1#page_3" class="sublink">적용분야</a>                               
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="nav_product" class="menuover">
+                        <a class="menulink" href="/Product/Product1"><span>Product</span></a>                       
+                        <ul id="size" class="size">
+                            <li>
+                                <a href="/Product/Product1" class="sublink">측정기</a>
+                            </li>
+                            <li>
+                                <a href="/Product/Product2" class="sublink">자동화 설비</a>
+                            </li>             
+                        </ul>
+                    </li>
+                    <li id="nav_contact" class="menuover">
+                        <a class="menulink" href="/Contact/Inquiry"><span>Contact</span></a>                     
+                        <ul id="size" class="size">
+                            <li><a href="/Contact/Inquiry" class="sublink">제품문의</a></li>
+                            <li><a href="/Contact/Agency" class="sublink">대리점</a></li>
+                        </ul>
+                    </li>
+                    <li id="nav_news" class="menuover">
+                        <a class="menulink" href="/Board/board_list?cate=1"><span>News</span></a>
+                        <ul id="size" class="size">
+                            <li><a href="/Board/board_list?cate=1" class="sublink">공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li id="nav_lang" class="hd_lang">
+                        <a href="/Home/Index_cn">CN</a>
+                        <a href="/Home/Index_en">EN</a>
+                        <a href="http://admin.theblueeye.com/">Admin</a>
+                    </li>
+
+                </ul>
+                
+            </div>
+            @*<div class="col-md-1 web_only">
+                <div class="hd_lang">
+                    <a href="/Home/Index_cn">CN</a>
+                    <a href="/Home/Index_en">EN</a>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</header>
+
+<script>
+
+    //headpannel size 조정//
+    var width = document.body.clientWidth;
+    if (width < 1024) {
+        var x = document.getElementById("size");
+        x.style.width = "100%";
+    }
+
+
+    $(window).resize(function () {
+        var width = document.body.clientWidth;
+        if (width < 1024) {
+            var x = document.getElementById("size");
+            x.style.width = "100%";
+        }
+    });
+            //headpannel size 조정//
+
+
+
+
+
+</script>
+
+
+<style>
+
+
+    
+</style>

@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Contact/Agency 대리점 -->
+@*<style>
+
+        .sel:before {
+            left: 31%;
+        }
+
+        .sel_depart:hover::before {
+            left: 31%
+        }
+
+        @@media (max-width: 767px) {
+
+            .sel:before {
+                left: 30%;
+            }
+
+            .sel_depart:hover::before {
+                left: 30%
+            }
+        }
+    </style>*@
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-4.jpg');background-position:bottom center">
+        <h1 class="sub_title" style="">대리점</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Contact/Inquiry">Contact</a></li>
+                <li class="breadcrumb-item active" aria-current="page">대리점</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-1 col-xs-3 col-md-offset-5 col-xs-offset-3 sel_depart m_menu">
+                <a href="/Contact/Inquiry">제품문의</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart sel m_menu">
+                <a href="/Contact/Agency">대리점</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2 ptb-30">
+
+            <!-- 대리점 지도 시작 -->
+            <div class="row agency-top" style="position:relative;">
+                <div class="col-md-12 clear ptb-20 agency-map;transition:0.5s;" data-aos="fade-up">
+                    <img src="~/images/Contact/map.jpg" class="img-responsive" />
+                </div>
+                <ul class="agency-list">
+                    <li class="russia" style="transition:1s;" data-aos="fade-up"><a href="#russia" onclick="goMap('russia')"><span>러시아</span></a></li>
+                    <li class="china" style="transition:1.5s;" data-aos="fade-up"><a href="#china" onclick="goMap('china')"><span>중국</span></a></li>
+                    <li class="turkey" style="transition:2s;" data-aos="fade-up"><a href="#turkey" onclick="goMap('turkey')"><span>터키</span></a></li>
+                    <li class="austria" style="transition:2.5s;" data-aos="fade-up"><a href="#austria" onclick="goMap('austria')"><span>오스트리아</span></a></li>
+                    <li class="thailand" style="transition:3s;" data-aos="fade-up"><a href="#thailand" onclick="goMap('thailand')"><span>태국</span></a></li>
+                </ul>
+            </div>
+            <!-- 대리점 지도 끝 -->
+            <!-- 대리점 리스트 시작 -->
+            <div class="agency-add">
+                <hr />
+                <div class="network-list russia cs_animate_title" id="russia" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    <h3>러시아(Promenergolab LLC)</h3>
+                    <h5><span>주소 :</span> 107392, Prostornaya str 7, Moscow, Russia</h5>
+                    <h5><span>전화번호 :</span> +7 (495) 22-11-208</h5>
+                    <h5><span>팩스 :</span> +7 (495) 22-11-208</h5>
+                </div>
+                <hr />
+                <div class="network-list china cs_animate_title" id="china" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    <h3>중국(Join Honors Tech Co., Ltd.)</h3>
+                    <h5><span>주소 :</span> Rm 929, Tongyuan Building, No.95 Qinghe 3rd Street, Haidian District, Beijing, 100085, China</h5>
+                    <h5><span>전화번호 :</span> +86-010-62961582,  82718430</h5>
+                    <h5><span>팩스 :</span> +86-010-82718430</h5>
+                    <h5>​(중국 북부 지역 : 베이징, 톈진, 허베이, 상동, 산시, 샨시, 허난, 헤이룽장, 길림, 랴오닝, 닝샤, 내몽고)</h5>
+                </div>
+                <hr />
+                <div class="network-list turkey cs_animate_title" id="turkey" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    <h3>터키(TEKNO TIP Analitik Sistemler Ltd. Sti.)</h3>
+                    <h5><span>주소 :</span> Alacaatli Mah. 3346. Cad. Cad. 3341.Sokak No:35/154 Yesil Baris Stesi Cankaya/Ankara 06810</h5>
+                    <h5><span>전화 :</span> +90 312 236 42 07-08 </h5>
+                    <h5><span>팩스 :</span> +90 312 236 42 18</h5>
+                </div>
+                <hr />
+                <div class="network-list austria cs_animate_title" id="austria" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    <h3>오스트리아(PANoptima-Scientific Instruments. Neugasse 9)</h3>
+                    <h5><span>전화번호 :</span> +43-(0)2252-94150</h5>
+                    <h5><span>홈페이지 :</span><a href="https://www.panoptima.at" target="_blank"> www.panoptima.at</a></h5>
+                    <h5><span>이메일 :</span> office@panoptima.at</h5>
+                </div>
+                <hr />
+                <div class="network-list thailand cs_animate_title" id="thailand" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                    <h3>태국(V Eye Precision Limited)</h3>
+                    <h5><span>전화번호 :</span> 662-902-0593-4</h5>
+                    <h5><span>팩스 :</span> 662-902-0595 </h5>
+                    <h5><span>홈페이지 :</span><a href="https://www.veyeprecision.com" target="_blank"> www.veyeprecision.com</a></h5>
+                    <h5><span>페이스북 :</span><a href="https://www.facebook.com/veyeprecision" target="_blank"> www.facebook.com/veyeprecision</a></h5>
+                    <h5><span>유튜브 :</span> <a href="https://www.youtube.com/user/philharmonicas"> www.youtube.com/user/philharmonicas</a></h5>
+                </div>
+            </div>
+            <!-- 대리점 리스트 끝 -->
+
+        </div>
+    </div>
+</div>
+
+
+<!-- 지도 리스트 링크 Script -->
+<script>
+    function goMap(cls) {
+        var listTop = $('.agency-add').children('.' + cls).offset().top - 100;
+        $('html,body').stop().animate({ 'scrollTop': listTop + 'px' }, 200);
+
+    }
+</script>

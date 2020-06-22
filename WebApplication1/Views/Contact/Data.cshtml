@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Contact/Data 자료실 -->
+
+<style>
+
+    .sel:before {
+        left: 31%;
+    }
+
+    .sel_depart:hover::before {
+        left: 31%
+    }
+
+    @@media (max-width: 767px) {
+
+        .sel:before {
+            left: 30%;
+        }
+
+        .sel_depart:hover::before {
+            left: 30%
+        }
+    }
+</style>
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-9.jpg');background-position:bottom center">
+        <h1 class="sub_title" style="">자료실</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Contact/Inquiry">Contact</a></li>
+                <li class="breadcrumb-item active" aria-current="page">자료실</li>
+            </ol>
+        </nav>
+        <div class="sub_menu col-md-12">
+            <div class="col-md-1 col-xs-4 col-md-offset-5 sel_depart m_menu">
+                <a href="/Contact/Inquiry">제품문의</a>
+            </div>
+            <div class="col-md-1 col-xs-4 sel_depart m_menu">
+                <a href="/Contact/Agency">대리점</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2 ptb-30">
+
+            <!-- 자료실 게시판 시작 -->
+            <div class="row board">
+                <div class="col-md-12 center clear" style="padding:0;">
+                    <div class="col-xs-2 th">번호</div>
+                    <div class="col-xs-6 th">제목</div>
+                    <div class="col-xs-2 th">작성일</div>
+                    <div class="col-xs-2 th">조회수</div>
+                </div>
+                <div class="col-md-12 center clear" style="padding:0;">
+                    <div class="col-xs-2 td"></div>
+                    <div class="col-xs-6 td"></div>
+                    <div class="col-xs-2 td"></div>
+                    <div class="col-xs-2 td"></div>
+                </div>
+                <div class="col-md-12 center clear" style="padding:20px 0;">
+                    <form id="form1" name="form1" action="/Board/Board_list" method="post">
+                        <div style="width:100% ;display:table;margin-bottom:10px">
+                            <div class="search-form" style="display:table;margin:0 auto;">
+                                <div class="col-xs-4 bottom" style="margin-bottom:20px">
+                                    <input type="hidden" name="cate" id="cate" value="1">
+                                    <select name="search_all_type" id="search_all_type" class="form-control">
+                                        <option value="1" selected="selected">제목 + 내용</option>
+                                        <option value="2">제목</option>
+                                        <option value="3">내용</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-5 bottom" style="margin-bottom:20px">
+                                    <input type="text" name="search_all" id="search_all" class="form-control" value="">
+                                </div>
+                                <div class="col-xs-2 bottom" style="margin-bottom:20px">
+                                    <div class="btn btn-default btn-fill btn-wd btn-default" onclick="search_it() ">  검색</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- 자료실 게시판 끝 -->
+
+        </div>
+    </div>
+</div>

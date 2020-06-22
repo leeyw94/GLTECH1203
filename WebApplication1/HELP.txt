@@ -1,0 +1,2 @@
+// DB 업데이트
+Scaffold-DbContext "Server=tcp:180.210.34.49,1433;Initial Catalog=admin_basic;Persist Security Info=True;User ID=blueeye;Password=blueeye0037;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=True;Connection Timeout=300;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -DataAnnotations  -UseDatabaseNames  -Context db_e -force

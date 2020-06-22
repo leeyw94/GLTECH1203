@@ -1,0 +1,112 @@
+﻿@model GLtech.Models.Inquiry
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    string idx = Context.Request.Query["idx"];
+}
+@Html.Partial("/Views/Shared/Header.cshtml")
+
+<!-- Contact/Inquiry 제품문의 -->
+
+<div class="row body" style="margin-left:0;margin-right:0;">
+
+    <!-- 서브 타이틀 메뉴 시작 -->
+    <div class="col-md-12 sub_title_bg" style="background-image: url('/images/Background/sub1-10.jpg');background-position:bottom center">
+        <h1 class="sub_title" style="">제품 문의</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Contact/Inquiry">Contact</a></li>
+                <li class="breadcrumb-item active" aria-current="page">제품 문의</li>
+            </ol>
+        </nav>
+        <div class="sub_menu">
+            <div class="col-md-1 col-xs-3 col-md-offset-5 col-xs-offset-3 sel_depart sel m_menu">
+                <a href="/Contact/Inquiry">제품문의</a>
+            </div>
+            <div class="col-md-1 col-xs-3 sel_depart m_menu">
+                <a href="/Contact/Agency">대리점</a>
+            </div>
+        </div>
+    </div>
+    <!-- 서브 타이틀 메뉴 끝 -->
+
+    <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2 ptb-30">
+            <div class="col-md-8 col-md-offset-2 clear ptb-20">
+                <h5 class="pb-30 center" style="word-break:keep-all;transition:0.5s;" data-aos="fade-up">
+                    궁금하신 문의사항을 보내주시면 최대한 신속하게 답변을 드리겠습니다.<br />
+                    답변은 입력하신 연락처, 이메일로 드릴 예정이므로 필수 항목(*)을 정확하게 입력하여 주십시오.
+                </h5>
+
+                <!-- 제품문의 폼 시작 -->
+                <form action="/Contact/Inquiry_action" name="frm" id="frm" method="POST" enctype="multipart/form-data" style="transition:1s;" data-aos="fade-up">
+                    <input type="hidden" name="idx" id="idx" value="@idx" />
+                    @*<input type="hidden" name="company_idx" id="company_idx" value="5" />*@
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                        <div class="col-sm-4">
+                            <label for="">이름<span>*</span></label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                        <div class="col-sm-4">
+                            <label for="">이메일<span>*</span></label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6" style="margin-top: 10px; line-height:3em;">
+                        <div class="col-sm-4">
+                            <label for="">회사명<span>*</span></label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.company, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                        <div class="col-sm-4">
+                            <label for="">부서<span>*</span></label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.department, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6" style="margin-top: 10px;line-height:3em;">
+                        <div class="col-sm-4">
+                            <label for="">연락처<span>*</span></label>
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12" style="margin-top: 10px;line-height:3em;">
+                        <div class="col-sm-2">
+                            <label for="">문의 내용<span>*</span></label>
+                        </div>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(a => a.contents, new { Class = "form-control", @style = "min-width:250px" })
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="text-align: center; margin-bottom: 25px;">
+                        <div onclick="save_it()" class="btn btn-default" style="transition:ease 0.4s;margin:40px auto;font-weight:500;cursor:pointer;"><text>문의하기</text></div>
+                    </div>
+                </form>
+                <!-- 제품문의 폼 끝 -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function save_it() {
+        check("name,email,company,department,tel,contents", "frm");
+        alert("문의 내용이 등록되었습니다.")
+    }
+</script>
